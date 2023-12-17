@@ -3,32 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Booking App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-hvq5jC/7ExdsCYHvVl8p3Q66/85uvyMR3IpL6J3kr8eqR4PsBCBQp0tg8Cy6j3Xi+GGLZV8ZKOdvmLxYu3FVNA==" crossorigin="anonymous" />
 </head>
 <body>
+
     <div class="container">
-        <h2>Book an Appointment</h2>
-        <form id="appointmentForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
+        <h2>Appointment Booking</h2>
+        <form id="userForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="email" required><br>
 
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br>
 
-            <input type="hidden" id="editIndex" value="">
-            <button type="button" onclick="submitAppointment()">Submit</button>
+            <label for="phone_no">Phone no.:</label>
+            <input type="text" id="Phone_no" name="Phone_no" required><br>
+
+            <button type="button" onclick="submitForm()">Submit</button>
         </form>
 
-        <div id="appointments-list">
-            <h2>Appointments</h2>
-            <ul id="appointments"></ul>
-        </div>
+        <!-- Display the list of users -->
+        <ul id="userList"></ul>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <script src="app.js"></script>
+
+        <!-- Initialize UI on page load -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                initUI();
+            });
+        </script>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
-    <script src="main.js"></script>
+
 </body>
 </html>
